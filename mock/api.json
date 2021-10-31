@@ -1,69 +1,44 @@
 {
   "users": [
     {
-      "username": "wellci",
-      "id": 1
-    },
-    {
-      "username": "Jv",
+      "username": "wellici",
       "id": 2
     },
     {
-      "username": "Wellici",
+      "username": "jose",
       "id": 3
-    },
-    {
-      "username": "Alice",
-      "id": 4
     }
   ],
   "todos": [
     {
-      "title": "Task",
-      "description": "13233",
+      "title": "Task 1",
+      "description": "descrição 1",
+      "userId": "2",
       "id": 1
     },
     {
-      "title": "cxv",
-      "description": "ds",
-      "userId": "3",
+      "title": "Task 2",
+      "description": "descrição 2",
+      "userId": "2",
       "id": 2
     },
     {
-      "title": "task 2",
-      "description": "swas",
-      "userId": "3",
+      "title": "task 3",
+      "description": "descrição 3",
+      "userId": "2",
       "id": 3
     },
     {
-      "title": "task da alice 1",
-      "description": "1232432",
-      "userId": "4",
+      "title": "task do jose 1",
+      "description": "descrição da task 1 do jose",
+      "userId": "3",
       "id": 4
     },
     {
-      "title": "adsd",
-      "description": "dddd",
+      "title": "task do jose 2",
+      "description": "descrição da task 2 do jose",
       "userId": "3",
       "id": 5
-    },
-    {
-      "title": "task 12",
-      "description": "minha task",
-      "userId": "3",
-      "id": 6
-    },
-    {
-      "title": "ksksk",
-      "description": "adhsds",
-      "userId": "3",
-      "id": 7
-    },
-    {
-      "title": "sssss",
-      "description": "aaa",
-      "userId": "3",
-      "id": 8
     }
   ]
 }
