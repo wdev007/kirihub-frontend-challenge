@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ChakraProvider } from "@chakra-ui/react";
+import { BrowserRouter } from "react-router-dom";
+import "./shared/styles/global.css";
 
-function App() {
+import AppProvider from "./shared/contexts/app.context";
+import Routes from "./shared/routes/index.routing";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider>
+      <AppProvider>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </AppProvider>
+    </ChakraProvider>
   );
-}
+};
 
 export default App;

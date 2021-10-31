@@ -1,0 +1,13 @@
+html,
+body,
+#root {
+  height: 100%;
+  --bg-primary: #323956;
+  --bg-secunday: #404674;
+  --buttons-primary: #5ccb9a;
+  --buttons-danger: #93414b;
+  --white: #e2e4f4;
+
+  background-color: var(--bg-primary);
+  color: var(--white);
+}
