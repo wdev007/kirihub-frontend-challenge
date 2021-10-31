@@ -64,9 +64,10 @@ List things you need to use the software and how to install them.
 ```
 
 2. Change the settings files
-   ```sh
+
+```sh
    cp .env.example .env
-   ```
+```
 
 ## Usage
 
