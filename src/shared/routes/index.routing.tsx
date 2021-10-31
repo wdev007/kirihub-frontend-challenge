@@ -1,17 +1,18 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 
 import RouteWrapper from "./route.wrapper";
 
 import Auth from "../../modules/auth";
 import TodoList from "../../modules/todolist";
 
-const Routes: React.FC = () => (
+const AppRoutes: React.FC = () => (
   <Switch>
-    <RouteWrapper path="/" exact component={Auth} />
-    <RouteWrapper path="/todolist" component={TodoList} isPrivate />
-    <Route path="/dfs" component={() => <div></div>} />
+    <RouteWrapper path="/" component={Auth} exact />
+    <RouteWrapper path="/login" component={Auth} exact />
+    <RouteWrapper path="/home" component={TodoList} isPrivate />
+    <RouteWrapper path="/todo" component={TodoList} />
   </Switch>
 );
 
-export default Routes;
+export default AppRoutes;

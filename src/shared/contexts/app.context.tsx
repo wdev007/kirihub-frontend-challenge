@@ -1,20 +1,36 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { IAppContext } from "../types/app.context.interface";
 import { ITodoItem } from "../../modules/todolist/types/todo.item.interface";
+// import { useHistory } from "react-router-dom";
 
 export const AppContext = createContext<IAppContext>({} as IAppContext);
 
+const KEY_AUTHENTICATION_STORE = "@todoList:authenticated";
+
 const AppProvider: React.FC = ({ children }) => {
-  const [authenticated, setAuthenticated] = useState(true);
+  // const history = useHistory();
+  const [authenticated, setAuthenticated] = useState(false);
   const [todoList, setTodoList] = useState<ITodoItem[]>([]);
+
+  useEffect(() => {
+    const isAuthenticated = localStorage.getItem(KEY_AUTHENTICATION_STORE);
+
+    if (isAuthenticated) {
+      setAuthenticated(JSON.parse(isAuthenticated));
+    }
+  }, []);
 
   const signIn = (): Promise<void> => {
     setAuthenticated(true);
+    // history.push("/home");
+    localStorage.setItem(KEY_AUTHENTICATION_STORE, JSON.stringify(true));
     return Promise.resolve();
   };
 
   const signOut = (): Promise<void> => {
     setAuthenticated(false);
+    // history.push("/login");
+    localStorage.removeItem(KEY_AUTHENTICATION_STORE);
     return Promise.resolve();
   };
 

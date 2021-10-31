@@ -1,6 +1,8 @@
 import { FC, useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
+
 import { AppContext } from "../contexts/app.context";
+
 import AppLayout from "../layouts/app";
 import AuthLayout from "../layouts/auth";
 
@@ -14,18 +16,25 @@ interface IProps {
 const RouteWrapper: FC<IProps> = ({
   component: Component,
   isPrivate,
+  path,
+  exact,
   ...rest
 }) => {
   const { authenticated } = useContext(AppContext);
+  const Layout = isPrivate ? AppLayout : AuthLayout;
 
-  if (isPrivate && !authenticated) {
+  if (!authenticated && isPrivate) {
     return <Redirect to="/" />;
   }
 
-  const Layout = authenticated ? AppLayout : AuthLayout;
+  if (authenticated && !isPrivate) {
+    return <Redirect to="/home" />;
+  }
 
   return (
     <Route
+      exact={exact}
+      path={path}
       {...rest}
       render={(renderProps) => (
         <Layout>

@@ -1,8 +1,10 @@
 import { Container } from "@chakra-ui/react";
 import { FC } from "react";
+
 import Navbar from "../components/Navbar";
 
 const AppLayout: FC = ({ children }) => {
+  console.log("AppLayout");
   return (
     <Container w="full" maxW="full" padding="0">
       <Navbar />

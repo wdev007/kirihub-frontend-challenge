@@ -6,9 +6,15 @@ import {
   MenuList,
   MenuItem,
   Avatar,
+  Image,
 } from "@chakra-ui/react";
+import { useContext } from "react";
+
+import Logo from "../../assets/images/logo.png";
+import { AppContext } from "../../contexts/app.context";
 
 const Navbar = () => {
+  const { signOut } = useContext(AppContext);
   return (
     <Box bg="#404674" w="full" h="20">
       <Flex
@@ -19,8 +25,7 @@ const Navbar = () => {
         alignItems="center"
         margin="auto"
       >
-        <Box>App</Box>
-        {/* <Button>Sign out</Button> */}
+        <Image src={Logo} h="20" />
         <Menu isLazy>
           <MenuButton>
             <Avatar
@@ -33,7 +38,7 @@ const Navbar = () => {
           <MenuList bg="#404674">
             <MenuItem>Seu perfil</MenuItem>
             <MenuItem>Configurações</MenuItem>
-            <MenuItem>Sign out</MenuItem>
+            <MenuItem onClick={signOut}>Sign out</MenuItem>
           </MenuList>
         </Menu>
       </Flex>

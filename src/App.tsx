@@ -1,17 +1,19 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import { BrowserRouter } from "react-router-dom";
-import "./shared/styles/global.css";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import AppProvider from "./shared/contexts/app.context";
 import Routes from "./shared/routes/index.routing";
+import history from "./shared/services/history";
+
+import "./shared/styles/global.css";
 
 const App = () => {
   return (
     <ChakraProvider>
       <AppProvider>
-        <BrowserRouter>
+        <Router>
           <Routes />
-        </BrowserRouter>
+        </Router>
       </AppProvider>
     </ChakraProvider>
   );
