@@ -6,4 +6,5 @@ export interface IAppContext {
   signIn(username: string): Promise<void>;
   signOut(): Promise<void>;
   addItem(item: ITodoItem): void;
+  removeItem(item: ITodoItem): void;
 }

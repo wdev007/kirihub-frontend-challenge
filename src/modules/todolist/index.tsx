@@ -31,6 +31,9 @@ const TodoList = () => {
       title,
       description,
     });
+    setTitle("");
+    setDescription("");
+    onClose();
   };
 
   return (

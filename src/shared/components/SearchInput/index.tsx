@@ -5,7 +5,7 @@ const SearchInput = () => (
   <InputGroup size="lg" borderRadius="3xl">
     <InputLeftElement pointerEvents="none" children={<FaSearch />} />
     <Input
-      placeholder="Search"
+      placeholder="Buscar"
       size="lg"
       color="white"
       borderRadius="3xl"

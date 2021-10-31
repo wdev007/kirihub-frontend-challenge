@@ -22,9 +22,16 @@ const AppProvider: React.FC = ({ children }) => {
     setTodoList((prevState) => [...prevState, item]);
   };
 
+  const removeItem = (todoItem: ITodoItem) => {
+    const remainingItems = todoList.filter(
+      (item) => item.title !== todoItem.title
+    );
+    setTodoList(remainingItems);
+  };
+
   return (
     <AppContext.Provider
-      value={{ authenticated, signIn, signOut, addItem, todoList }}
+      value={{ authenticated, signIn, signOut, addItem, todoList, removeItem }}
     >
       {children}
     </AppContext.Provider>
