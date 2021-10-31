@@ -11,6 +11,7 @@ const Listing = () => {
         <Item
           title={item.title}
           key={item.title}
+          id={item.id}
           description={item.description}
         />
       ))}

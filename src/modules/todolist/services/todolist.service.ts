@@ -14,6 +14,11 @@ const todoListService: ITodoListService = {
 
     return response.data;
   },
+  delete: async (id: number) => {
+    const response = await api.delete(`/todos/${id}`);
+
+    return response.data;
+  },
 };
 
 export default todoListService;

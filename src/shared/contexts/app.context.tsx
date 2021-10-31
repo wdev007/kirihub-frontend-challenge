@@ -76,11 +76,18 @@ const AppProvider: React.FC = ({ children }) => {
     setTodoListToSearch(items);
   };
 
-  const removeItem = (todoItem: ITodoItem) => {
-    const remainingItems = todoList.filter(
-      (item) => item.title !== todoItem.title
-    );
-    setTodoList(remainingItems);
+  const removeItem = async (todoItem: ITodoItem) => {
+    if (!todoItem?.id) return;
+
+    setLoading(true);
+
+    await todoListService.delete(todoItem.id);
+
+    const items = await todoListService.findAll(user.id);
+
+    setLoading(false);
+    setTodoList(items);
+    setTodoListToSearch(items);
   };
 
   const searchTodos = (value: string) => {

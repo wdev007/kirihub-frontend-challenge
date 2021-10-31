@@ -19,9 +19,10 @@ import { AppContext } from "../../../../shared/contexts/app.context";
 interface IProps {
   title: string;
   description?: string;
+  id?: number;
 }
 
-const Item: FC<IProps> = ({ title, description }) => {
+const Item: FC<IProps> = ({ title, description, id }) => {
   const { removeItem } = useContext(AppContext);
 
   return (
@@ -69,10 +70,12 @@ const Item: FC<IProps> = ({ title, description }) => {
           justifyContent="space-between"
           pb={4}
         >
-          <Button colorScheme="gray">Cancelar</Button>
+          <Button colorScheme="gray" color="black">
+            Cancelar
+          </Button>
           <Button
             colorScheme="red"
-            onClick={() => removeItem({ title, description })}
+            onClick={() => removeItem({ title, description, id })}
           >
             Excluir
           </Button>
