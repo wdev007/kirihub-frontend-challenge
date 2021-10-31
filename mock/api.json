@@ -7,6 +7,10 @@
     {
       "username": "jose",
       "id": 3
+    },
+    {
+      "username": "wellici araujo",
+      "id": 4
     }
   ],
   "todos": [
@@ -39,6 +43,36 @@
       "description": "descrição da task 2 do jose",
       "userId": "3",
       "id": 5
+    },
+    {
+      "title": "Passar um café",
+      "description": "sem café não da...",
+      "userId": "4",
+      "id": 6
+    },
+    {
+      "title": "Fazer uma pipoquinha",
+      "description": "pq ninguem é de ferro...",
+      "userId": "4",
+      "id": 7
+    },
+    {
+      "title": "Maratonar Rick and Morty",
+      "description": "melhor série",
+      "userId": "4",
+      "id": 8
+    },
+    {
+      "title": "Maratonar The Big Bang Theory",
+      "description": "Também é a melhor série rs",
+      "userId": "4",
+      "id": 9
+    },
+    {
+      "title": "Agora é hora de dormir",
+      "description": "Ou não....",
+      "userId": "4",
+      "id": 10
     }
   ]
 }

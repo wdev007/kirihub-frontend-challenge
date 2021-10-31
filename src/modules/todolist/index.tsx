@@ -33,6 +33,12 @@ const TodoList = () => {
     searchTodos(value);
   };
 
+  const handleClose = () => {
+    setTitle("");
+    setDescription("");
+    onClose();
+  };
+
   const handleSave = () => {
     addItem({
       title,
@@ -69,7 +75,7 @@ const TodoList = () => {
         finalRef={finalRef}
         initialRef={initialRef}
         isOpen={isOpen}
-        onClose={onClose}
+        onClose={handleClose}
         title="Adicionar novo item"
         onSave={handleSave}
       >
