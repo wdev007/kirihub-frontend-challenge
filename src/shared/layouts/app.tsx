@@ -1,5 +1,5 @@
-import { Container } from "@chakra-ui/react";
 import { FC } from "react";
+import { Container } from "@chakra-ui/react";
 
 import Navbar from "../components/Navbar";
 

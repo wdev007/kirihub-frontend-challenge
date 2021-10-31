@@ -26,7 +26,7 @@ const Navbar = () => {
         margin="auto"
       >
         <Image src={Logo} h="20" />
-        <Menu isLazy>
+        <Menu isLazy colorScheme="gray">
           <MenuButton>
             <Avatar
               size="md"
@@ -36,7 +36,17 @@ const Navbar = () => {
             />
           </MenuButton>
           <MenuList bg="#404674">
-            <MenuItem onClick={signOut}>Sign out</MenuItem>
+            <MenuItem
+              onClick={signOut}
+              _hover={{
+                backgroundColor: "#404674",
+              }}
+              _selected={{
+                backgroundColor: "#404674",
+              }}
+            >
+              Sign out
+            </MenuItem>
           </MenuList>
         </Menu>
       </Flex>

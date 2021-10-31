@@ -4,10 +4,10 @@ import { AppContext } from "../../../../shared/contexts/app.context";
 import Item from "../Item";
 
 const Listing = () => {
-  const { todoList } = useContext(AppContext);
+  const { todoListToSearch } = useContext(AppContext);
   return (
     <Flex flexDirection="column">
-      {todoList.map((item) => (
+      {todoListToSearch.map((item) => (
         <Item
           title={item.title}
           key={item.title}

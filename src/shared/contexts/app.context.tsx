@@ -12,17 +12,22 @@ export const USER_STORAGE_KEY = "@todoList:username";
 
 const AppProvider: React.FC = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [user, setUser] = useState<IUser>({
     username: "",
     id: 0,
   });
   const [todoList, setTodoList] = useState<ITodoItem[]>([]);
+  const [todoListToSearch, setTodoListToSearch] = useState<ITodoItem[]>([]);
 
   useEffect(() => {
     const findAllTodos = async () => {
       if (user && user.id) {
+        setLoading(true);
         const items = await todoListService.findAll(user.id);
+        setLoading(false);
         setTodoList(items);
+        setTodoListToSearch(items);
       }
     };
     findAllTodos();
@@ -36,33 +41,39 @@ const AppProvider: React.FC = ({ children }) => {
       setAuthenticated(JSON.parse(isAuthenticated));
     }
     if (storedUser) {
-      console.log("storedUser: ", storedUser);
       setUser(JSON.parse(storedUser));
     }
   }, []);
 
   const signIn = async (paramUsername: string): Promise<void> => {
+    setLoading(true);
     const user = await authService.signIn(paramUsername);
 
     if (!user) return;
 
     setAuthenticated(true);
     setUser(user);
+    setLoading(false);
 
     localStorage.setItem(AUTHENTICATION_STORAGE_KEY, JSON.stringify(true));
     localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(user));
   };
 
-  const signOut = (): Promise<void> => {
+  const signOut = async (): Promise<void> => {
     setAuthenticated(false);
     localStorage.removeItem(AUTHENTICATION_STORAGE_KEY);
-    return Promise.resolve();
+    localStorage.removeItem(USER_STORAGE_KEY);
   };
 
   const addItem = async (item: ITodoItem) => {
+    setLoading(true);
     await todoListService.create(item, user.id);
+
     const items = await todoListService.findAll(user.id);
+
+    setLoading(false);
     setTodoList(items);
+    setTodoListToSearch(items);
   };
 
   const removeItem = (todoItem: ITodoItem) => {
@@ -70,6 +81,17 @@ const AppProvider: React.FC = ({ children }) => {
       (item) => item.title !== todoItem.title
     );
     setTodoList(remainingItems);
+  };
+
+  const searchTodos = (value: string) => {
+    if (!value) {
+      setTodoListToSearch(todoList);
+      return;
+    }
+    const found = todoList.filter((item) =>
+      item.title.toLocaleUpperCase().includes(value.toLocaleUpperCase())
+    );
+    setTodoListToSearch(found);
   };
 
   return (
@@ -82,6 +104,9 @@ const AppProvider: React.FC = ({ children }) => {
         todoList,
         removeItem,
         user,
+        loading,
+        searchTodos,
+        todoListToSearch,
       }}
     >
       {children}

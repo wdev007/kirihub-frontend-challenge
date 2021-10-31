@@ -8,12 +8,14 @@ import ModalBody from "./components/ModalBody";
 
 import AppModal from "../../shared/components/Modal";
 import { AppContext } from "../../shared/contexts/app.context";
+import AppSpinner from "../../shared/components/Spinner";
 
 const TodoList = () => {
-  const { addItem } = useContext(AppContext);
+  const { addItem, loading, searchTodos } = useContext(AppContext);
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   const initialRef = useRef();
   const finalRef = useRef();
@@ -24,6 +26,11 @@ const TodoList = () => {
 
   const handleChangeDescription = (event: ChangeEvent<HTMLInputElement>) => {
     setDescription(event.target.value);
+  };
+
+  const handleSearchValue = (value: string) => {
+    setSearchValue(value);
+    searchTodos(value);
   };
 
   const handleSave = () => {
@@ -40,7 +47,7 @@ const TodoList = () => {
     <>
       <Container w="full" maxW="50%" minW="80">
         <Flex alignItems="center" margin="2.5" marginTop="10" marginBottom="3">
-          <SearchInput />
+          <SearchInput handleValue={handleSearchValue} value={searchValue} />
           <Flex w="30%" justifyContent="flex-end">
             <Button
               bg="#5ccb9a"
@@ -56,6 +63,7 @@ const TodoList = () => {
           </Flex>
         </Flex>
         <Listing />
+        {loading && <AppSpinner />}
       </Container>
       <AppModal
         finalRef={finalRef}
