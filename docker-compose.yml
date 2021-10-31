@@ -6,7 +6,9 @@ services:
     build: .
     volumes:
       - ".:/usr/src/app"
+    env_file:
+      - .env
     ports:
-      - ${PORT}:${PORT}
+      - ${REACT_APP_PORT}:${REACT_APP_PORT}
     environment:
       - NODE_ENV=development

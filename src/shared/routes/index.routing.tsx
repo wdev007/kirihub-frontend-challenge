@@ -9,9 +9,7 @@ import TodoList from "../../modules/todolist";
 const AppRoutes: React.FC = () => (
   <Switch>
     <RouteWrapper path="/" component={Auth} exact />
-    <RouteWrapper path="/login" component={Auth} exact />
     <RouteWrapper path="/home" component={TodoList} isPrivate />
-    <RouteWrapper path="/todo" component={TodoList} />
   </Switch>
 );
 

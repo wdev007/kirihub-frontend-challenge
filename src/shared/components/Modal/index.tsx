@@ -36,7 +36,7 @@ const AppModal: FC<IProps> = ({
     isCentered
   >
     <ModalOverlay />
-    <ModalContent>
+    <ModalContent bg="#323956" color="white">
       <ModalHeader>{title}</ModalHeader>
       <ModalCloseButton />
       <ModalBody pb={6}>{children}</ModalBody>
@@ -52,7 +52,9 @@ const AppModal: FC<IProps> = ({
         >
           Adicionar
         </Button>
-        <Button onClick={onClose}>Cancel</Button>
+        <Button onClick={onClose} colorScheme="red">
+          Cancel
+        </Button>
       </ModalFooter>
     </ModalContent>
   </Modal>

@@ -3,7 +3,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import AppProvider from "./shared/contexts/app.context";
 import Routes from "./shared/routes/index.routing";
-import history from "./shared/services/history";
 
 import "./shared/styles/global.css";
 

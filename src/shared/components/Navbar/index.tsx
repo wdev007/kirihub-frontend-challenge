@@ -14,7 +14,7 @@ import Logo from "../../assets/images/logo.png";
 import { AppContext } from "../../contexts/app.context";
 
 const Navbar = () => {
-  const { signOut } = useContext(AppContext);
+  const { signOut, user } = useContext(AppContext);
   return (
     <Box bg="#404674" w="full" h="20">
       <Flex
@@ -30,14 +30,12 @@ const Navbar = () => {
           <MenuButton>
             <Avatar
               size="md"
-              name="Wellici Araujo"
+              name={user.username}
               bg="gray.600"
               color="white"
             />
           </MenuButton>
           <MenuList bg="#404674">
-            <MenuItem>Seu perfil</MenuItem>
-            <MenuItem>Configurações</MenuItem>
             <MenuItem onClick={signOut}>Sign out</MenuItem>
           </MenuList>
         </Menu>

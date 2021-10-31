@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "username": "wellci",
+      "id": 1
+    },
+    {
+      "username": "Jv",
+      "id": 2
+    },
+    {
+      "username": "Wellici",
+      "id": 3
+    },
+    {
+      "username": "Alice",
+      "id": 4
+    }
+  ],
+  "todos": [
+    {
+      "title": "Task",
+      "description": "13233",
+      "id": 1
+    },
+    {
+      "title": "cxv",
+      "description": "ds",
+      "userId": "3",
+      "id": 2
+    },
+    {
+      "title": "task 2",
+      "description": "swas",
+      "userId": "3",
+      "id": 3
+    },
+    {
+      "title": "task da alice 1",
+      "description": "1232432",
+      "userId": "4",
+      "id": 4
+    }
+  ]
+}

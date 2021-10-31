@@ -1,5 +1,6 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: process.env.BASE_SERVE_URL,
+  baseURL: "http://localhost:3333",
+  validateStatus: (status) => status !== 500,
 });

@@ -1,9 +1,19 @@
-import { ITodoListApi } from "../types/todolistapi.interface";
+import { ITodoItem } from "../types/todo.item.interface";
+import { ITodoListService } from "../types/todolist.service.interface";
+import api from "../../../shared/services/api.http";
 
-const todoListApi: ITodoListApi = {
-  findAll: async () => {},
+const todoListService: ITodoListService = {
+  findAll: async (userId: number) => {
+    const response = await api.get(`/users/${userId}/todos`);
 
-  create: async () => {},
+    return response.data;
+  },
+
+  create: async (todoItem: ITodoItem, userId: number) => {
+    const response = await api.post(`/users/${userId}/todos`, todoItem);
+
+    return response.data;
+  },
 };
 
-export default todoListApi;
+export default todoListService;

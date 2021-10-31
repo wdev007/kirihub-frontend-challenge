@@ -1,11 +1,11 @@
 import { Box, Flex, Input, Button, Image } from "@chakra-ui/react";
 import { ChangeEvent, useContext, useState } from "react";
-import { useHistory } from "react-router";
+
 import Logo from "../../shared/assets/images/logo.png";
+
 import { AppContext } from "../../shared/contexts/app.context";
 
 const Auth = () => {
-  const history = useHistory();
   const { signIn } = useContext(AppContext);
   const [username, setUsername] = useState("");
 
@@ -14,8 +14,6 @@ const Auth = () => {
 
   const handleSubmit = async () => {
     await signIn(username);
-
-    history.push("/home");
   };
 
   return (
