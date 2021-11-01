@@ -7,6 +7,7 @@ import {
   MenuItem,
   Avatar,
   Image,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { useContext } from "react";
 
@@ -15,12 +16,14 @@ import { AppContext } from "../../contexts/app.context";
 
 const Navbar = () => {
   const { signOut, user } = useContext(AppContext);
+  const [isMobile] = useMediaQuery("(max-width: 830px)");
+
   return (
     <Box bg="grayDark.300" w="full" h="20">
       <Flex
-        w="46%"
+        w={isMobile ? "46%" : "46%"}
         h="100%"
-        maxW="50%"
+        minW={isMobile ? "300px" : "46%"}
         justifyContent="space-between"
         alignItems="center"
         margin="auto"

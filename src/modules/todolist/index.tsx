@@ -1,5 +1,11 @@
 import { ChangeEvent, useContext, useRef, useState } from "react";
-import { Container, Flex, Button, useDisclosure } from "@chakra-ui/react";
+import {
+  Container,
+  Flex,
+  Button,
+  useDisclosure,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import SearchInput from "../../shared/components/SearchInput";
 import { FaPlus } from "react-icons/fa";
 
@@ -13,6 +19,7 @@ import AppSpinner from "../../shared/components/Spinner";
 const TodoList = () => {
   const { addItem, loading, searchTodos } = useContext(AppContext);
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const [isMobile] = useMediaQuery("(max-width: 830px)");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [searchValue, setSearchValue] = useState("");
@@ -52,17 +59,31 @@ const TodoList = () => {
   return (
     <>
       <Container w="full" maxW="50%" minW="80">
-        <Flex alignItems="center" margin="2.5" marginTop="10" marginBottom="3">
+        {console.log("isMobile: ", isMobile)}
+        <Flex
+          flexDirection={isMobile ? "column" : "row"}
+          alignItems="center"
+          margin="2.5"
+          marginTop="10"
+          marginBottom="3"
+        >
           <SearchInput handleValue={handleSearchValue} value={searchValue} />
-          <Flex w="30%" justifyContent="flex-end">
+          <Flex
+            marginLeft={!isMobile ? "2.5" : "unset"}
+            w={isMobile ? "full" : "30%"}
+            h={isMobile ? "20" : "unset"}
+            justifyContent="flex-end"
+            alignItems="center"
+          >
             <Button
-              bg="#5ccb9a"
+              bg="greenDark.400"
               _hover={{
-                backgroundColor: "#24B374",
+                backgroundColor: "greenDark.500",
               }}
               shadow="md"
               leftIcon={<FaPlus />}
               onClick={onOpen}
+              isFullWidth={isMobile}
             >
               Adicionar
             </Button>

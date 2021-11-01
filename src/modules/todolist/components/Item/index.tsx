@@ -46,7 +46,7 @@ const Item: FC<IProps> = ({ title, description, id }) => {
             textAlign="start"
           >
             <FaCheckCircle color="#5ccb9a" />
-            <Box textAlign="start" w="95%">
+            <Box textAlign="start" w="95%" marginLeft="2">
               <Text textAlign="start" fontSize="lg">
                 {title}
               </Text>
