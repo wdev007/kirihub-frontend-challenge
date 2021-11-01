@@ -68,25 +68,25 @@ List things you need to use the software and how to install them.
 1. run the fake server
 
 ```sh
- npm run start:api
+  npm run start:api
 ```
 
 2. Change the settings files
 
 ```sh
-   cp .env.example .env
+  cp .env.example .env
 ```
 
 ## Usage
 
 ```sh
-docker-compose up
+  docker-compose up
 ```
 
 ## Run tests
 
 ```sh
-yarn run test
+  yarn run test
 ```
 
 ## Author
