@@ -11,6 +11,10 @@
     {
       "username": "wellici araujo",
       "id": 4
+    },
+    {
+      "username": "maria",
+      "id": 5
     }
   ],
   "todos": [
@@ -73,6 +77,18 @@
       "description": "Ou não....",
       "userId": "4",
       "id": 10
+    },
+    {
+      "title": "Task da maria",
+      "description": "primeira task da maria",
+      "userId": "5",
+      "id": 11
+    },
+    {
+      "title": "Outra task",
+      "description": "",
+      "userId": "5",
+      "id": 12
     }
   ]
 }

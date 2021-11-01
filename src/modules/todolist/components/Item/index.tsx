@@ -26,7 +26,7 @@ const Item: FC<IProps> = ({ title, description, id }) => {
   const { removeItem } = useContext(AppContext);
 
   return (
-    <Popover placement="bottom" closeOnBlur={false}>
+    <Popover placement="bottom" closeOnBlur>
       <PopoverTrigger>
         <Box
           bg="#404674"
@@ -67,12 +67,9 @@ const Item: FC<IProps> = ({ title, description, id }) => {
           border="0"
           d="flex"
           alignItems="center"
-          justifyContent="space-between"
+          justifyContent="flex-end"
           pb={4}
         >
-          <Button colorScheme="gray" color="black">
-            Cancelar
-          </Button>
           <Button
             colorScheme="red"
             onClick={() => removeItem({ title, description, id })}
