@@ -16,7 +16,7 @@ import { AppContext } from "../../contexts/app.context";
 const Navbar = () => {
   const { signOut, user } = useContext(AppContext);
   return (
-    <Box bg="#404674" w="full" h="20">
+    <Box bg="grayDark.300" w="full" h="20">
       <Flex
         w="46%"
         h="100%"
@@ -35,14 +35,14 @@ const Navbar = () => {
               color="white"
             />
           </MenuButton>
-          <MenuList bg="#404674">
+          <MenuList bg="grayDark.300">
             <MenuItem
               onClick={signOut}
               _hover={{
-                backgroundColor: "#404674",
+                backgroundColor: "grayDark.300",
               }}
               _selected={{
-                backgroundColor: "#404674",
+                backgroundColor: "grayDark.300",
               }}
             >
               Sign out

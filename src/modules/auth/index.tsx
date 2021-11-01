@@ -18,7 +18,7 @@ const Auth = () => {
 
   return (
     <Flex h="full" w="full" alignItems="center" justifyContent="center">
-      <Box h="60" bg="#404674" w="70%">
+      <Box h="60" bg="grayDark.300" w="70%" borderRadius="md">
         <Flex
           flexDirection="column"
           justifyContent="space-between"
@@ -39,10 +39,10 @@ const Auth = () => {
                 onChange={handlerUsername}
               />
               <Button
-                bg="#5ccb9a"
+                bg="greenDark.400"
                 isFullWidth
                 _hover={{
-                  backgroundColor: "#24B374",
+                  backgroundColor: "greenDark.500",
                 }}
                 shadow="md"
                 onClick={handleSubmit}

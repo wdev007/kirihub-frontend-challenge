@@ -36,23 +36,23 @@ const AppModal: FC<IProps> = ({
     isCentered
   >
     <ModalOverlay />
-    <ModalContent bg="#323956" color="white">
+    <ModalContent bg="grayDark.500" color="white">
       <ModalHeader>{title}</ModalHeader>
       <ModalCloseButton />
       <ModalBody pb={6}>{children}</ModalBody>
 
       <ModalFooter>
         <Button
-          bg="#5ccb9a"
+          bg="greenDark.400"
           _hover={{
-            backgroundColor: "#24B374",
+            backgroundColor: "greenDark.500",
           }}
           mr={3}
           onClick={onSave}
         >
           Adicionar
         </Button>
-        <Button onClick={onClose} colorScheme="red">
+        <Button onClick={onClose} colorScheme="red" bg="red" color="white">
           Cancel
         </Button>
       </ModalFooter>

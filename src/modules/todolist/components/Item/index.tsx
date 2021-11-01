@@ -29,7 +29,7 @@ const Item: FC<IProps> = ({ title, description, id }) => {
     <Popover placement="bottom" closeOnBlur>
       <PopoverTrigger>
         <Box
-          bg="#404674"
+          bg="grayDark.300"
           borderRadius="md"
           height="16"
           textAlign="start"
@@ -50,7 +50,7 @@ const Item: FC<IProps> = ({ title, description, id }) => {
               <Text textAlign="start" fontSize="lg">
                 {title}
               </Text>
-              <Text fontSize="sm" color="#6e749c">
+              <Text fontSize="sm" color="grayDark.400">
                 {description || ""}
               </Text>
             </Box>
