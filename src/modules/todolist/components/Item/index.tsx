@@ -11,6 +11,7 @@ import {
   PopoverHeader,
   PopoverCloseButton,
   Button,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
 
@@ -24,6 +25,7 @@ interface IProps {
 
 const Item: FC<IProps> = ({ title, description, id }) => {
   const { removeItem } = useContext(AppContext);
+  const [isMobile] = useMediaQuery("(max-width: 830px)");
 
   return (
     <Popover placement="bottom" closeOnBlur>
@@ -46,11 +48,11 @@ const Item: FC<IProps> = ({ title, description, id }) => {
             textAlign="start"
           >
             <FaCheckCircle color="#5ccb9a" />
-            <Box textAlign="start" w="95%" marginLeft="2">
-              <Text textAlign="start" fontSize="lg">
+            <Box textAlign="start" w={isMobile ? "80%" : "91%"}>
+              <Text textAlign="start" fontSize="lg" isTruncated>
                 {title}
               </Text>
-              <Text fontSize="sm" color="grayDark.400">
+              <Text fontSize="sm" color="grayDark.400" isTruncated>
                 {description || ""}
               </Text>
             </Box>

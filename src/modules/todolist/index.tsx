@@ -59,7 +59,6 @@ const TodoList = () => {
   return (
     <>
       <Container w="full" maxW="50%" minW="80">
-        {console.log("isMobile: ", isMobile)}
         <Flex
           flexDirection={isMobile ? "column" : "row"}
           alignItems="center"
